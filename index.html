@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Slack Template Tool</title>
+    <link rel="stylesheet" href="tmp.css">
+    <script type="text/javascript" src="tmp.js"></script>
+  </head>
+  <body>
+    <!--
+        Created by Kyle Hickey, copyright 2019
+        Intellectual Property owned by Kyle Hickey
+        DISCLAIMER:
+        This utility was created for the express purpose of assisting both the creator and fellow agents with creating perfectly formatted
+        Slack templates quickly and accurately. Every deployment of this file, and/or the code contained within, must first be approved by
+        asking the creator.
+        This tool, while originally programmed for personal use to assist the creator with client tasks while under the employment of Concentrix Corporation, was created in full on free time, on a personal device. All rights retain to the creator.
+
+        e.g. This is no different than if I brought my personal hammer to a job at a construction site and used it.
+        -->
+        <div id="wrapper">
+          <header>
+            <label for="tpl-selector">Template Type:&nbsp;</label>
+            <select id="tpl-selector" class="input-field" onchange="changeCheck()">
+              <option value="SME Assistance" selected>SME Assistance</option>
+              <option value="SUP/SME Call">SUP/SME Call</option>
+              <option value="Discount Request">Discount Request</option>
+              <option value="Refund Request">Refund Request</option>
+              <option value="Transfer Request">Transfer Request</option>
+            </select>
+
+            <label for="area-selector">Area: &nbsp;</label>
+            <select class="input-field" id="area-selector" onchange="updateOutput(); removeRequiredFromArea();"></select>
+          </header>
+
+          <main id="editor"></main>
+
+          <footer>
+            <div class="input-wrapper" id="outputwrap">
+              <label for="output">Paste this into Slack:</label>
+              <textarea id="output" class="input-field" rows="8" cols="80" disabled></textarea>
+            </div>
+
+            <div id="btnwrap">
+              <button type="button￼" class="qbo-btn" onclick="copyCheck()">Copy</button>
+              <button type="button" class="qbo-btn" onclick="clearCheck()">Clear</button>
+            </div>
+          </footer>
+        </div>
+  </body>
+</html>
