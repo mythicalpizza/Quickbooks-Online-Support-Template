@@ -10,6 +10,14 @@ label, input {
   display: block;
 }
 
+.input-setting, .input-setting-label {
+  display: inline;
+}
+
+.input-setting-label a {
+  text-decoration: none;
+}
+
 .input-wrapper {
   display: block;
   margin: auto;
