@@ -142,8 +142,6 @@ function changeTemplate() {
 
     case "Quick Question":
       tpl = tplQuickQuestion;
-      addDedicatedArea("");
-      document.getElementById("area-selector").disabled = true;
       setDisclaimer("If a SME determines that your question needs more attention, please be prepared to fill out a full template!");
       break;
 
