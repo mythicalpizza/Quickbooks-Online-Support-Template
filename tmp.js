@@ -33,7 +33,7 @@ var tplSMEAssistance = {
 var tplSupcall = {
   length: 6,
   emote: "",
-  labels: ["Company ID", "Case #", "Phone Number", "Description of the Issue", "What trobleshooting/researching has been done so far?", "Reason SUP/SME is needed"],
+  labels: ["Company ID", "Case #", "Phone Number", "Description of the Issue", "What troubleshooting/researching has been done so far?", "Reason SUP/SME is needed"],
   ids: ["coid", "casenumber", "phonenumber", "issuedescription", "stepstaken", "reason"],
   types: ["text", "text", "text", "textarea", "textarea", "textarea"],
   placeholders: ["e.g. 123187956452310", "e.g. 123654897", "e.g. (913) 123-4567", "e.g. Customer was told they were not eligible for another discount.", "e.g. I tried to look up her account, all she gave me was the company ID.", "e.g. Customer is unable to work with me. Demanding a supervisor because they were told by numerous agents they could not have another discount and she does not like that answer."],
@@ -70,6 +70,16 @@ var tplTransferRequest = {
   crashCopyName: "TransferRequest-copy"
 }
 
+var tplQuickQuestion = {
+  length: 1,
+  emote: [":star1:"],
+  labels: ["Quick Question"],
+  ids: ["quickquestion"],
+  types: ["text"],
+  placeholders: ["Quick Question"],
+  crashCopyName: ["quickquestion-copy"]
+}
+
 var areaOptions = ["1099", "Add-Ons/3rd Party Apps", "Advanced", "Banking", "Billing", "Client Management", "Customer (Money In)", "Data Management/Damage", "Import/Export QBO File", "Inventory", "Mobile App", "Multi-Currency", "Payroll", "POS/Payments", "Proadvisor/Accountant Only Features", "Reports", "Sales Tax", "Subscription Management", "Tool Request", "User Management/Login", "Vendor (Money Out)"];
 
 //Global vars
@@ -91,6 +101,7 @@ function applySettings () {
 
 function changeTemplate() {
   document.getElementById("output").value = "";
+  setDisclaimer("");
   //Remove existing fields
   removeFields();
   removeRequiredFromArea();
@@ -127,6 +138,13 @@ function changeTemplate() {
       tpl = tplTransferRequest;
       addDedicatedArea("Transfer");
       document.getElementById("area-selector").disabled = true;
+      break;
+
+    case "Quick Question":
+      tpl = tplQuickQuestion;
+      addDedicatedArea("");
+      document.getElementById("area-selector").disabled = true;
+      setDisclaimer("If a SME determines that your question needs more attention, please be prepared to fill out a full template!");
       break;
 
     default:
@@ -453,4 +471,8 @@ function isClear(){
     else{
       console.log("User declined reload. Setting changed will not apply until page is reloaded.");
     }
+  }
+
+  function setDisclaimer(message) {
+    document.getElementById("output-disclaimer").firstChild.nodeValue = message;
   }

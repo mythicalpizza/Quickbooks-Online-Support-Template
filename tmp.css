@@ -90,3 +90,10 @@ label, input {
   display: block;
   text-align: center;
 }
+
+#output-disclaimer {
+  color: #ff0000;
+  text-align: center;
+  margin: auto;
+  display: block;
+}
