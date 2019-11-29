@@ -3,24 +3,23 @@
   <head>
     <meta charset="utf-8">
     <title>Slack Template Tool</title>
-    <link rel="stylesheet" href="tmp.css">
-    <script type="text/javascript" src="tmp.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
   </head>
   <body>
     <!--
     Created by Kyle Hickey, copyright 2019
     DISCLAIMER:
     This utility was created for the express purpose of assisting both the creator and fellow agents with creating perfectly formatted
-    Slack templates quickly and accurately. Every deployment of this file, and/or the code contained within, must furst be approved by
+    Slack templates quickly and accurately. Every deployment of this file, linked resources, and/or the code contained within, must first be approved by
     asking the creator.
     This tool, while originally programmed for personal use to assist the creator with client tasks while under the employment of Concentrix Corporation, was created in full on free time, on a personal device. All rights retain to the creator.
 
     e.g. This is no different than if I brought my personal hammer to a job at a construction site and used it.
     -->
     <div id="wrapper">
-
-      <label for="enableCrashCopy_chk" class="input-setting-label">Enable Crash Copies: <a href="#" title="Enable or disable the 'crash copy' feature. This saves the last entry for each filled template type if not cleared with the Clear button, intended for use of quick recovery after accidentally closing the tab. Disabling this will improve tool response time slightly.">What's This?</a></label>
-      <input type="checkbox" id="enableCrashCopy_chk" class="input-setting" onchange="localStorage.setItem('enableCrashCopy', this.checked); reloadCheck();">
+			<label for="crashCopy_btn">Crash Copy:</label>
+			<button id="crashCopy_btn" class="qbo-btn" onclick="toggleCrashCopy();">Enable/Disable Crash Copies</button>
       <hr>
 
       <header>
