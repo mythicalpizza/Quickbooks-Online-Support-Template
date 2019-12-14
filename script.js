@@ -262,10 +262,10 @@ function isClear(){
   //Update the form into the output field
   function updateOutput(){
     var str = (currentTemplate.emote != "" ? (currentTemplate.emote + "\n") : "");
-    str += " *" + document.getElementById("tpl-selector").value + "*\n";
-    str += " " + areaDelimiter + "*Area:* " + document.getElementById("area-selector").value + "] \n";
+    str += " " + document.getElementById("tpl-selector").value + "\n";
+    str += " " + areaDelimiter + "Area: " + document.getElementById("area-selector").value + "] \n";
     for(var i = 0; i < currentTemplate.length; i++){
-      str += " *" + currentTemplate.labels[i] + ":* " + document.getElementById(currentTemplate.ids[i]).value + "\n";
+      str += " " + currentTemplate.labels[i] + ": " + document.getElementById(currentTemplate.ids[i]).value + "\n";
     }
 
     if(enableTestResultFlag){
